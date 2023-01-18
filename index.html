@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<style>
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.h2{
+  align-items: center;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+<body>
+
+<h2>Khatri Families</h2>
+
+<div>
+  <form method="POST" name="google-sheet">
+    <label for="name">Name</label>
+    <input type="text" id="lname" name=" Name" placeholder=" Enter Your name">
+
+    <label for="name">Fathour's/Husband's Name </label>
+    <input type="text" id="lname" name="Father's/Husband's Name" placeholder=" Enter Fathour's/Husband's Name">
+     
+    <label for="name">Gotra</label>
+    <input type="text" id="lname" name="Gotra" placeholder="Enter Gotra">
+
+    <label for="Number">Age</label>
+    <input type="text" id="lname" name="Age" placeholder="Enter Age">
+
+    <label for="name">Sex</label>
+    <input type="text" id="lname" name="Sex" placeholder="Enter Your Sex">
+
+    <label for="name">Date of Birth</label>
+    <input type="text" id="lname" name="Date of Birth" placeholder="Date of Birth">
+
+    <label for="name">Mobile Number</label>
+    <input type="text" id="lname" name="Mobile Number" placeholder="Your Mobile Number">
+
+    <label for="Email">Email Id</label>
+    <input type="text" id="lname" name="Email Id" placeholder="Your Email Id">
+
+    <label for="name">Home Adderss</label>
+    <input type="text" id="lname" name="Home Adderss" placeholder="Your Home Address">
+
+    <label for="name">Organisation Name</label>
+    <input type="text" id="lname" name="Organisation Name" placeholder=" your Organisation Name">
+
+    <label for="name">Organisation Address</label>
+    <input type="text" id="lname" name="Organisation Address" placeholder="Your Organisation Address">
+
+    <label for="Number">Aadhar Number</label>
+    <input type="text" id="lname" name="Aadhar Number" placeholder=" Enter Aadhar Number">
+
+    <input type="submit" value="Submit" name="submit">
+  </form>
+</div>
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzpOpHoGCkDg0S0ofAMK5_VIyRNCvOfQl0HcPA2pLtvmL59Qkds4U5ZMCX06pdZItCq_A/exec'
+    const form = document.forms['google-sheet']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+
+</body>
+</html>
